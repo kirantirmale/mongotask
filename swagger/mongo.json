@@ -1,0 +1,694 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "mongodb collection",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000/api",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "signup",
+        "operationId": "signup",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/signuprequest"
+                  },
+                  {
+                    "example": {
+                      "username": "kittu",
+                      "email": "kt@gmail.com",
+                      "password": "1234"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "username": "kittu",
+                "email": "kt@gmail.com",
+                "password": "1234"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "login",
+        "operationId": "login",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/loginrequest"
+                  },
+                  {
+                    "example": {
+                      "username": "kiran",
+                      "email": "kiran@gmail.com",
+                      "password": "1234135612"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "username": "kiran",
+                "email": "kiran@gmail.com",
+                "password": "1234135612"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/getdata": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "getdata",
+        "operationId": "getdata",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/user/adddata": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "adddata",
+        "operationId": "adddata",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/adddatarequest"
+                  },
+                  {
+                    "example": {
+                      "username": "satvik",
+                      "email": "satvik@gmail.com",
+                      "password": "1234135612",
+                      "role": "admin"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "username": "satvik",
+                "email": "satvik@gmail.com",
+                "password": "1234135612",
+                "role": "admin"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/user/updatedata": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "updatedata",
+        "operationId": "updatedata",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "64ae215b927fae68e3c84a02"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/updatedatarequest"
+                  },
+                  {
+                    "example": {
+                      "username": "urmi",
+                      "email": "urmi@gmail.com",
+                      "password": "1464613"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "username": "urmi",
+                "email": "urmi@gmail.com",
+                "password": "1464613"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/user/deletedata": {
+      "delete": {
+        "tags": [
+          "user"
+        ],
+        "summary": "deletedata",
+        "operationId": "deletedata",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "64bc950768835b1fc15b41c3"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/user/getonedata": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "getonedata",
+        "operationId": "getonedata",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "64bc950768835b1fc15b41c3"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/product/getdata": {
+      "get": {
+        "tags": [
+          "product"
+        ],
+        "summary": "getdata",
+        "operationId": "Getgetdata",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/adddata": {
+      "post": {
+        "tags": [
+          "product"
+        ],
+        "summary": "adddata",
+        "operationId": "Postadddata",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/adddatarequest1"
+                  },
+                  {
+                    "example": {
+                      "productname": "nkon",
+                      "size": 121,
+                      "quantity": 1,
+                      "price": 12131
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "productname": "nkon",
+                "size": 121,
+                "quantity": 1,
+                "price": 12131
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/getonedata": {
+      "post": {
+        "tags": [
+          "product"
+        ],
+        "summary": "getonedata",
+        "operationId": "Postgetonedata",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "64af6b11e0e28414202099d3"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/product/updatedata": {
+      "post": {
+        "tags": [
+          "product"
+        ],
+        "summary": "updatedata",
+        "operationId": "Postupdatedata",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "64bca712736b664e04bf6a93"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/updatedatarequest1"
+                  },
+                  {
+                    "example": {
+                      "productname": "hp",
+                      "size": 121,
+                      "quantity": 1,
+                      "price": 1000
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "productname": "hp",
+                "size": 121,
+                "quantity": 1,
+                "price": 1000
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/deletedata": {
+      "delete": {
+        "tags": [
+          "product"
+        ],
+        "summary": "deletedata",
+        "operationId": "Deletedeletedata",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "64bca5cc73d09cc3c2b9c85f"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "signuprequest": {
+        "title": "signuprequest",
+        "required": [
+          "username",
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "username": "kittu",
+          "email": "kt@gmail.com",
+          "password": "1234"
+        }
+      },
+      "loginrequest": {
+        "title": "loginrequest",
+        "required": [
+          "username",
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "username": "kiran",
+          "email": "kiran@gmail.com",
+          "password": "1234135612"
+        }
+      },
+      "adddatarequest": {
+        "title": "adddatarequest",
+        "required": [
+          "username",
+          "email",
+          "password",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "username": "satvik",
+          "email": "satvik@gmail.com",
+          "password": "1234135612",
+          "role": "admin"
+        }
+      },
+      "updatedatarequest": {
+        "title": "updatedatarequest",
+        "required": [
+          "username",
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "username": "urmi",
+          "email": "urmi@gmail.com",
+          "password": "1464613"
+        }
+      },
+      "adddatarequest1": {
+        "title": "adddatarequest1",
+        "required": [
+          "productname",
+          "size",
+          "quantity",
+          "price"
+        ],
+        "type": "object",
+        "properties": {
+          "productname": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "productname": "nkon",
+          "size": 121,
+          "quantity": 1,
+          "price": 12131
+        }
+      },
+      "updatedatarequest1": {
+        "title": "updatedatarequest1",
+        "required": [
+          "productname",
+          "size",
+          "quantity",
+          "price"
+        ],
+        "type": "object",
+        "properties": {
+          "productname": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "productname": "hp",
+          "size": 121,
+          "quantity": 1,
+          "price": 1000
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [],
+  "tags": [
+    {
+      "name": "auth"
+    },
+    {
+      "name": "user"
+    },
+    {
+      "name": "product"
+    }
+  ]
+}
